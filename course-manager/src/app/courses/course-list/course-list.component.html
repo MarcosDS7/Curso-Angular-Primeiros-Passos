@@ -1,34 +1,40 @@
-<h2>Course List</h2>
-
-<table class="table table-hover table-striped">
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Code</th>
-      <th>Release Date</th>
-      <th>Rating</th>
-      <th>Options</th>
-    </tr>
-  </thead>
-
-  <tbody class="border">
-    <tr *ngFor="let course of courses">
-      <td>
-        <img
-          [src]="course.imageUrl"
-          width="40"
-          height="40"
-          alt="Imagem do curso"
-        />
-      </td>
-      <td>{{ course.name }}</td>
-      <td>{{ course.price }}</td>
-      <td>{{ course.code }}</td>
-      <td>{{ course.releaseDate }} Date</td>
-      <td><app-star [rating]="course.rating"></app-star></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+<h2 class="text-primary font-monospace">Course List</h2>
+<div class="my-3">
+  <label for="filter" class="mb-1 text-secondary">FIlter by</label>
+  <input name="filter" [(ngModel)]="filter" type="text" class="form-control" />
+</div>
+<article class="table-responsive-md">
+  <table class="table table-hover table-striped">
+    <thead>
+      <tr class="text-primary text-nowrap">
+        <th class="fw-normal">Image</th>
+        <th class="fw-normal">Name</th>
+        <th class="fw-normal">Price</th>
+        <th class="fw-normal">Code</th>
+        <th class="fw-normal">Release Date</th>
+        <th class="fw-normal">Rating</th>
+        <th class="fw-normal">Options</th>
+      </tr>
+    </thead>
+    <tbody class="border">
+      <tr class="fs-6 text-nowrap" *ngFor="let course of filteredCourses">
+        <td class="align-middle">
+          <img
+            [src]="course.imageUrl"
+            width="40"
+            height="40"
+            alt="Imagem do curso"
+          />
+        </td>
+        <td class="align-middle">{{ course.name }}</td>
+        <td class="align-middle">{{ course.price }}</td>
+        <td class="align-middle">{{ course.code }}</td>
+        <td class="align-middle">{{ course.releaseDate }} Date</td>
+        <td class="align-middle">
+          <app-star [rating]="course.rating"></app-star>
+        </td>
+        <td class="align-middle"></td>
+      </tr>
+    </tbody>
+  </table>
+</article>

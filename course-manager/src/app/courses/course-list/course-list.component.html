@@ -28,8 +28,12 @@
         </td>
         <td class="align-middle">{{ course.name }}</td>
         <td class="align-middle">{{ course.price }}</td>
-        <td class="align-middle">{{ course.code }}</td>
-        <td class="align-middle">{{ course.releaseDate }} Date</td>
+        <td class="align-middle">
+          {{ course.code | lowercase | replace: "-":" " }}
+        </td>
+        <td class="align-middle">
+          {{ course.releaseDate | date: "dd/MM/yyyy" }}
+        </td>
         <td class="align-middle">
           <app-star [rating]="course.rating"></app-star>
         </td>

@@ -36,11 +36,14 @@
         <td class="align-middle">
           <app-star [rating]="course.rating"></app-star>
         </td>
-        <td class="align-middle">
+        <td class="align-middle d-flex gap-2">
           <a
             [routerLink]="['/courses/info', course.id]"
             class="btn btn-outline-primary"
             >Edit</a
+          >
+          <a (click)="deleteById(course.id)" class="btn btn-outline-danger"
+            >Delete</a
           >
         </td>
       </tr>
